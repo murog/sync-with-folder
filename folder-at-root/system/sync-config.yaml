@@ -1,0 +1,12 @@
+apiVersion: addons.sigs.k8s.io/v1alpha1
+kind: ConfigManagement
+metadata:
+  name: config-management
+  namespace: config-management-system
+spec:
+  # clusterName is required and must be unique among all managed clusters
+  clusterName: my-acm-cluster-2
+  git:
+    syncRepo: git@github.com:murog/sync-with-folder.git
+    secretType: ssh
+    policyDir: "docs/example/nested-folder/"
